@@ -1,0 +1,186 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Slider */
+.slider {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide.active {
+    opacity: 1;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    position: relative;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.logo {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: 3px solid #ff6600;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    margin-top: 10px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+/* Main content styling */
+main {
+    padding: 2rem 5%;
+}
+
+/* Ajout Plat Form */
+.ajout-plat-form {
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for background */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+.ajout-plat-form h1 {
+    text-align: center;
+    color: #333;
+}
+
+.ajout-plat-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.ajout-plat-form input,
+.ajout-plat-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.ajout-plat-form textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+.ajout-plat-form button {
+    background-color: #333;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.ajout-plat-form button:hover {
+    background-color: #555;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        padding: 2rem 2%;
+    }
+
+    .ajout-plat-form input,
+    .ajout-plat-form textarea,
+    .ajout-plat-form button {
+        font-size: 0.9rem;
+    }
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: white;
+        padding: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}

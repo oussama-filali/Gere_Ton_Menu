@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Mon Restaurant</title>
+    <link rel="stylesheet" href="assets/css/style2.css">
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slide active" style="background-image: url('pexels-valeriya-842571.jpg')"></div>
+        <div class="slide" style="background-image: url('2photo.jpg')"></div>
+        <div class="slide" style="background-image: url('photo1.jpg')"></div>
+        <div class="slide" style="background-image: url('plate-2802332_1280.jpg')"></div>
+        <div class="slide" style="background-image: url('pexels-xmtnguyen-699953.jpg')"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="logo appli.webp" alt="Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="accueil.html">Accueil</a>
+            <a href="#" onclick="ouvrirModale()">Connexion</a>
+            <a href="contact.html">Contact</a>
+            <a href="aide.html">Aide</a>
+        </div>
+        <div class="hamburger">☰</div>
+    </nav>
+
+    <!-- Section principale de la page Contact -->
+    <main>
+        <section class="contact-form">
+            <h1>Contactez-nous</h1>
+            <p>Vous avez des questions ? Remplissez le formulaire ci-dessous pour nous contacter, nous nous ferons un plaisir de vous répondre.</p>
+
+            <!-- Formulaire de contact -->
+            <form action="envoyer_message.php" method="POST">
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="sujet">Sujet :</label>
+                <input type="text" id="sujet" name="sujet" required>
+
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+
+        
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2025 Mon Restaurant. Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+-- Active: 1737899013229@@127.0.0.1@3306@gere_ton_menu
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gère Ton Menu</title>
+    <link rel="stylesheet" href="assets/css/style1.css">
+</head>
+<body>
+    <div class="slider">
+        <div class="slide active" style="background-image: url('photo1.jpg')"></div>
+        <div class="slide" style="background-image: url('pexels-valeriya-842571.jpg')"></div>
+        <div class="slide" style="background-image: url('2photo.jpg')"></div>
+        <div class="slide" style="background-image: url('pexels-xmtnguyen-699953.jpg')"></div>
+        <div class="indicateurs">
+            <div class="indicateur active"></div>
+            <div class="indicateur"></div>
+            <div class="indicateur"></div>
+
+
+    </div>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="logo appli.webp" alt="Logo" class="logo">
+        </div>
+        <div class="nav-links">
+            <a href="accueil.html">Accueil</a>
+            <a href="#" onclick="ouvrirModale()">Connexion</a>
+            <a href="contact.html">Contact</a>
+            <a href="aide.html">Aide</a>
+        </div>
+        <div class="hamburger">☰</div>
+    </nav>
+
+    <div id="modale" class="modale-overlay">
+        <div class="modale-contenu">
+            <span class="fermer" onclick="fermerModale()">×</span>
+            <h2 id="titre-modale">Connexion</h2>
+
+            <form id="form-connexion" action="php/login.php" method="POST">
+                <label>Email :</label>
+                <input type="email" name="email" required>
+                <label>Mot de passe :</label>
+                <input type="password" name="password" required>
+                <button type="submit">Se connecter</button>
+            </form>
+
+            <form id="form-inscription" action="php/register.php" method="POST" style="display: none;">
+                <label>Nom :</label>
+                <input type="text" name="name" required>
+                <label>Email :</label>
+                <input type="email" name="email" required>
+                <label>Mot de passe :</label>
+                <input type="password" name="password" required>
+                <button type="submit">S'inscrire</button>
+            </form>
+
+            <p id="switch-form">
+                Pas encore inscrit ? <a href="#" onclick="changerFormulaire()">Créer un compte</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="/assets/js/script.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
