@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: ../connexion.php");
+    exit();
+}
 
 $servername = "localhost";
 $username = "root";
@@ -11,21 +15,23 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $name = htmlspecialchars($_POST['name']);
-        $email = htmlspecialchars($_POST['email']);
+        $username = htmlspecialchars($_POST['username']);
         $password = htmlspecialchars($_POST['password']);
 
-        $sql = "INSERT INTO restaurateurs (name, email, password) VALUES (:name, :email, :password)";
+        $sql = "SELECT * FROM restaurateurs WHERE username = :username AND password = :password";
         $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':name', $name);
-        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':username', $username);
         $stmt->bindParam(':password', $password);
 
-        if ($stmt->execute()) {
-            header("Location: ../accueil.html");
+        $stmt->execute();
+        $user = $stmt->fetch();
+
+        if ($user) {
+            $_SESSION['username'] = $username;
+            header("Location: ../ajout_plat.php");
             exit();
         } else {
-            echo "Erreur lors de l'inscription";
+            echo "Nom d'utilisateur ou mot de passe incorrect";
         }
     }
 } catch(PDOException $e) {

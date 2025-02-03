@@ -1,41 +1,32 @@
-// Gestion de la modale
 function ouvrirModale() {
     document.getElementById('modale').style.display = 'flex';
 }
 
-function fermerModale() {
-    document.getElementById('modale').style.display = 'none';
-}
-
-// Basculer entre formulaires
 function changerFormulaire() {
-    const connexion = document.getElementById('form-connexion');
-    const inscription = document.getElementById('form-inscription');
-    const titre = document.getElementById('titre-modale');
-    const lien = document.querySelector('#switch-form a');
+    var formConnexion = document.getElementById('form-connexion');
+    var formInscription = document.getElementById('form-inscription');
+    var titreModale = document.getElementById('titre-modale');
+    var switchForm = document.getElementById('switch-form');
 
-    if (connexion.style.display === 'none') {
-        connexion.style.display = 'block';
-        inscription.style.display = 'none';
-        titre.textContent = 'Connexion';
-        lien.textContent = 'Créer un compte';
+    if (formConnexion.style.display === 'none') {
+        formConnexion.style.display = 'block';
+        formInscription.style.display = 'none';
+        titreModale.textContent = 'Connexion';
+        switchForm.innerHTML = 'Pas encore inscrit ? <a href="#" onclick="changerFormulaire()">Créer un compte</a>';
     } else {
-        connexion.style.display = 'none';
-        inscription.style.display = 'block';
-        titre.textContent = 'Inscription';
-        lien.textContent = 'Se connecter';
+        formConnexion.style.display = 'none';
+        formInscription.style.display = 'block';
+        titreModale.textContent = 'Inscription';
+        switchForm.innerHTML = 'Déjà inscrit ? <a href="#" onclick="changerFormulaire()">Se connecter</a>';
     }
 }
 
-// Menu hamburger
 document.querySelector('.hamburger').addEventListener('click', () => {
     document.querySelector('.nav-links').classList.toggle('active');
 });
 
-// Slider automatique
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
-
 
 function nextSlide() {
     slides[currentSlide].classList.remove('active');
@@ -44,7 +35,6 @@ function nextSlide() {
 }
 setInterval(nextSlide, 5000);
 
-// Fermeture modale au clic externe
 window.onclick = function(event) {
     if (event.target === document.getElementById('modale')) {
         fermerModale();
